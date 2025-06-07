@@ -160,6 +160,7 @@
         
         .page-title {
             text-align: center;
+            margin-top: 50px;
             margin-bottom: 40px;
             position: relative;
         }
@@ -895,6 +896,32 @@
         .carousel-arrow:hover {
             background: var(--primary);
         }
+
+        .carousel-content-2 {
+            position: absolute;
+            top: -60%;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-pic-2 {
+            /* position: relative; */
+            margin: auto 0;
+            /* top: 0; */
+            /* left: 0; */
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -966,16 +993,21 @@
             <div class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></div>
             <div class="carousel-arrow next"><i class="fas fa-chevron-right"></i></div>
         </div>
+
+    </div>
+
+    <div class="carousel-container-2">
+        <div class="page-title">
+            <h1>探索风傲世界</h1>
+            <p>从高效能的混合动力系统到令人兴奋的极致驾驶体验，风傲汽车为您提供多样化选择</p>
+        </div>
+        <img class="carousel-pic-2" src="images/hybrid.png" alt="混动">
     </div>
 
     <!-- 主内容区 - 首页 -->
     <div class="main-container">
         <div class="page active" id="home-page">
-            <div class="page-title">
-                <h1>探索风傲世界</h1>
-                <p>从高效能的混合动力系统到令人兴奋的极致驾驶体验，风傲汽车为您提供多样化选择</p>
-            </div>
-            
+
             <!-- 车辆类型选择 -->
             <section id="vehicle-types">
                 <h2 style="margin-bottom: 30px; color: var(--secondary);">选择您的车辆类型</h2>
