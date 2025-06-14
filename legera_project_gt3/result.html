@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORAL | 风傲 雷夫洛特 Legera</title>
+    <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #eb0a1e;
+            --secondary: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo svg {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 10px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c9091a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(235, 10, 30, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-right: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* 主内容区样式 */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 70vh;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .page-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .page-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        /* 车辆类型选择 */
+        .vehicle-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .type-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .type-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .type-content {
+            padding: 20px;
+        }
+        
+        .type-content h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .type-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .type-content .btn {
+            width: 100%;
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+        
+        /* 车型选择页面 */
+        .model-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .model-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .model-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .model-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .model-card:hover .model-image img {
+            transform: scale(1.05);
+        }
+        
+        .model-info {
+            padding: 20px;
+        }
+        
+        .model-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .model-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .model-features {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .feature {
+            background: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .model-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* 配置选择页面 */
+        .config-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+        
+        .config-options {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .config-preview {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .option-group {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .option-group h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .option-card {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .option-card:hover {
+            border-color: var(--primary);
+        }
+        
+        .option-card.selected {
+            border-color: var(--primary);
+            background: rgba(235, 10, 30, 0.05);
+        }
+        
+        .option-card h4 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .option-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+        
+        .option-price {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .preview-image {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .preview-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .price-summary {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #ddd;
+        }
+        
+        /* 预览页面 */
+        .preview-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .preview-details {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .detail-section {
+            margin-bottom: 30px;
+        }
+        
+        .detail-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .preview-image-large {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* 品牌介绍页面样式 */
+        .about-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .timeline {
+            margin-top: 50px;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content:before {
+            right: -50px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content:before {
+            left: -50px;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .timeline-content .date {
+            display: block;
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-container:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                left: 0 !important;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content:before {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content:before {
+                left: 20px;
+            }
+            
+            .config-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .preview-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .vehicle-types, .model-selection {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 页面切换效果 */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .back-btn {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+
+        .carousel-logo {
+            width: 10%;
+            margin-bottom: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img onclick="showPage('index')" src="../svg/foral_logo_background.svg" alt="风傲logo" class="carousel-logo" style="transform: scale(0.4); position: absolute; margin: 0 auto;  left: 10%; "></img>
+                <span class="logo-text" style="position: absolute; margin: 0 auto; left: 18%; ">风傲汽车</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link" data-page="index">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
+                <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">预约试驾</a>
+                <a href="#" class="btn btn-primary">我的风傲</a>
+            </div>
+        </div>
+    </header>
+        
+        <!-- 价格预览页面 -->
+        <div class="page active" id="preview-page" style="width: 80%; margin: 0 auto; ">
+            <a href="#" class="back-btn" onclick="goBack('sedan')"><i class="fas fa-arrow-left"></i> 返回</a>
+            <div class="page-title">
+                <h1>您的风傲配置</h1>
+                <p>查看您精心选择的配置和最终价格</p>
+            </div>
+            
+            <div class="preview-container">
+                <div class="preview-details">
+                    <div class="preview-image-large">
+                        <img src="../images/leflot_legera_project_gt3/F.png" style="width: 100%;" alt="车辆预览">
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>车辆信息</h3>
+                        <div class="detail-item">
+                            <span>车型</span>
+                            <span>雷夫洛特Legera雷格纳 Project GT3</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>外观颜色</span>
+                            <span id = "color">珍珠白</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>内饰风格</span>
+                            <span id = "interior">黑色皮革</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>轮毂</span>
+                            <span id = "wheels">17英寸合金轮毂</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>选装配置</h3>
+                        <div class="detail-item">
+                            <span>科技包</span>
+                            <span id = "tech">基础版</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>附加配置</span>
+                            <span>无</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>价格明细</h3>
+                        <div class="detail-item">
+                            <span>基础车型价格</span>
+                            <span id = "valueBasic">¥189,800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>选装配置</span>
+                            <span id = "valueOptional">¥0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>购置税</span>
+                            <span id = "valueTaxe">¥16,800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>保险</span>
+                            <span id = "valueInsurance">¥8,500</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>上牌费</span>
+                            <span id = "valuePlate">¥1,000</span>
+                        </div>
+                        <div class="price-total">
+                            <span>总计</span>
+                            <span id = "valueTotal">¥216,100</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button class="btn btn-outline" style="flex: 1;" onclick="goBack('sedan')">修改配置</button>
+                        <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
+                        <!-- <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://beamng.com/game/')">预约试驾</button> -->
+                        <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://github.com/NiZhaZi/Beamng_Hybrid_and_EV_Mod/releases/download/Sample_Cars/ind_f2_lqm.zip')">立即订购</button>
+                    </div>
+                </div>
+                
+                <div class="preview-details">
+                    <h3>交付信息</h3>
+                    <div class="detail-item">
+                        <span>预计交付时间</span>
+                        <span>1周</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>推荐经销商</span>
+                        <span>上海浦东风傲中心</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>经销商地址</span>
+                        <span>上海市浦东新区C路4号</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>联系电话</span>
+                        <span>+1-505-842-5662</span>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background: #f9f9f9; border-radius: 8px; padding: 20px;">
+                        <h3>专属优惠</h3>
+                        <p>恭喜！您选择的配置可享受以下专属优惠：</p>
+                        <ul style="margin: 15px 0 15px 20px;">
+                            <li>3年或10万公里免费保养</li>
+                            <li>5年免费道路救援</li>
+                            <li>低息金融方案：首付30%，年利率3.99%</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3>下一步建议</h3>
+                        <p>我们的销售顾问将在24小时内联系您，为您安排试驾和购车事宜。</p>
+                        <p>您也可以直接前往推荐经销商处体验实车。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>风傲汽车</h3>
+                <p>风傲致力于为全球消费者提供高品质、安全可靠的汽车产品，创造更加美好的移动社会。</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>热门车型</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Kuna</a></li>
+                    <li><a href="#">X2B</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>车主服务</h3>
+                <ul class="footer-links">
+                    <li><a href="#">预约保养</a></li>
+                    <li><a href="#">道路救援</a></li>
+                    <li><a href="#">零件查询</a></li>
+                    <li><a href="#">车主手册</a></li>
+                    <li><a href="#">软件更新</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号</li>
+                    <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
+                    <li><i class="fas fa-envelope"></i> foralauto@protonmail.com</li>
+                    <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 莱姆利尔工业集团 版权所有 | </p>
+        </div>
+    </footer>
+    
+    <script>
+        // 页面导航功能
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                showPage(targetPage);
+                
+                // 更新导航激活状态
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // 显示指定页面
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            window.location.href = "../" + pageId + ".html"
+        }
+        
+        // 返回上一页
+        function goBack(model) {
+            // showPage(targetPage);
+            window.location.href = "../models_" + model + ".html";
+        }
+        
+        // 车辆类型选择
+        function selectType(type) {
+            showPage('model');
+        }
+        
+        // 车型选择
+        function selectModel(model) {
+            showPage('config');
+        }
+        
+        // 配置选项选择
+        function selectOption(element, category, option) {
+            // 移除同组其他选项的选择状态
+            const group = element.parentElement;
+            group.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // 添加当前选项的选择状态
+            element.classList.add('selected');
+            document.getElementById(category).innerHTML = option;
+            // 这里可以添加更新配置预览和价格的逻辑
+        }
+        
+        // 显示配置预览页面
+        function showPreview() {
+            showPage('preview');
+        }
+
+        function linkOut(web) {
+            window.location.href = web;
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 默认显示首页
+            // showPage('home');
+            // window.location.href = "../index.html";
+
+            document.getElementById('color').innerHTML = localStorage.getItem('color');
+            document.getElementById('interior').innerHTML = localStorage.getItem('interior');
+            document.getElementById('tech').innerHTML = localStorage.getItem('tech');
+            document.getElementById('wheels').innerHTML = localStorage.getItem('wheels');
+
+            var valueBasic = localStorage.getItem('valueBasic');
+            var valueToatalBT = localStorage.getItem('valueTotal');
+            var valueOptional = valueToatalBT - valueBasic;
+            var VBC = parseInt(valueBasic);
+
+            document.getElementById('valueBasic').innerHTML = "¥" + VBC.toLocaleString();
+            document.getElementById('valueOptional').innerHTML = "¥" + valueOptional.toLocaleString();
+
+            var valueTaxe = valueToatalBT * 0.08;
+            var valueInsurance = 2000;
+            var valuePlate = 500;
+            var valueToatal = parseInt(valueToatalBT) + parseInt(valueTaxe) + parseInt(valueInsurance) + parseInt(valuePlate);
+
+            document.getElementById('valueTaxe').innerHTML = "¥" + valueTaxe.toLocaleString();
+            document.getElementById('valueInsurance').innerHTML = "¥" + valueInsurance.toLocaleString();
+            document.getElementById('valuePlate').innerHTML = "¥" + valuePlate.toLocaleString();
+            document.getElementById('valueTotal').innerHTML = "¥" + valueToatal.toLocaleString();
+
+        });
+    </script>
+</body>
+</html>
