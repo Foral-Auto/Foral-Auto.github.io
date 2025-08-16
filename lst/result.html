@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORAL | 风傲 选择您的轿车</title>
-    <link rel="icon" type="image/svg" href="svg/foral_logo_black.svg">
+    <title>FORAL | 风傲 摩托比 LST</title>
+    <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -749,116 +749,27 @@
             margin-right: 8px;
         }
 
-    </style>
-        
-    <style>
-
-        /* .model-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .model-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        } */
-
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .image-container .default-img {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .image-container .hover-img {
-            opacity: 0;
-            transform: scale(1.05);
-        }
-
-        .image-card {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease;
-            height: 200px;
-            position: relative;
-        }
-        
-        .image-card:hover {
-            /* transform: translateY(-10px) scale(1.02); */
-        }
-
-        .image-card:hover .default-img {
-            opacity: 0;
-            transform: scale(1.05);
-        }
-        
-        .image-card:hover .hover-img {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .model-image .hover-img {
-            clip-path: circle(75%);
-        }
-
         .carousel-logo {
             width: 10%;
             margin-bottom: 30px;
         }
-
-        .line{
-            display: inline-block;
-            border-top: 5px solid #F00;
-            flex-grow: 1;
-        }
-
-        .box{
-            display: flex;
-            align-items: center;
-        }
-
-        .text{
-            margin: 0 10px;
-            font-size: 50px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
+        
     </style>
-
 </head>
 <body>
     <!-- 导航栏 -->
     <header>
         <div class="nav-container">
             <div class="logo">
-                <img onclick="showPage('index')" src="svg/foral_logo_background.svg" alt="风傲logo" class="carousel-logo" style="transform: scale(0.4); position: absolute; margin: 0 auto;  left: 10%; "></img>
+                <img onclick="showPage('index')" src="../svg/foral_logo_background.svg" alt="风傲logo" class="carousel-logo" style="transform: scale(0.4); position: absolute; margin: 0 auto;  left: 10%; "></img>
                 <span class="logo-text" style="position: absolute; margin: 0 auto; left: 18%; ">风傲汽车</span>
             </div>
             
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
-                <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
-                <li><a href="#">最新资讯</a></li>
-                <li><a href="#">经销商查询</a></li>
+                <li><a href="#" class="nav-link" data-page="index">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
+                <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -868,44 +779,124 @@
         </div>
     </header>
         
-        <!-- 车型选择页面 -->
-        <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
-            <a href="#" class="back-btn" onclick="goBack('home-page')"><i class="fas fa-arrow-left"></i> 返回</a>
+        <!-- 价格预览页面 -->
+        <div class="page active" id="preview-page" style="width: 80%; margin: 0 auto; ">
+            <a href="#" class="back-btn" onclick="goBack('sedan')"><i class="fas fa-arrow-left"></i> 返回</a>
             <div class="page-title">
-                <h1>选择您的车型</h1>
-                <p>探索我们精心设计的各种车型，找到最适合您的驾驶伙伴</p>
+                <h1>您的风傲配置</h1>
+                <p>查看您精心选择的配置和最终价格</p>
             </div>
-
-            <div class="model-card">
-                <div class="image-card model-image">
-                    <div class="image-container">
-                    <img src="images/motop_lst/S.png" alt="lstS" class="default-img">
-                    <img src="images/motop_lst/F.png" alt="lstF" class="hover-img">
+            
+            <div class="preview-container">
+                <div class="preview-details">
+                    <div class="preview-image-large">
+                        <img src="../images/motop_lst/F.png" style="width: 100%;" alt="车辆预览">
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>车辆信息</h3>
+                        <div class="detail-item">
+                            <span>车型</span>
+                            <span>摩托比LST</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>外观颜色</span>
+                            <span id = "color">珍珠白</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>内饰风格</span>
+                            <span id = "interior">黑色皮革</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>轮毂</span>
+                            <span id = "wheels">17英寸合金轮毂</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>选装配置</h3>
+                        <div class="detail-item">
+                            <span>科技包</span>
+                            <span id = "tech">基础版</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>附加配置</span>
+                            <span>无</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>价格明细</h3>
+                        <div class="detail-item">
+                            <span>基础车型价格</span>
+                            <span id = "valueBasic">¥189,800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>选装配置</span>
+                            <span id = "valueOptional">¥0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>购置税</span>
+                            <span id = "valueTaxe">¥16,800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>保险</span>
+                            <span id = "valueInsurance">¥8,500</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>上牌费</span>
+                            <span id = "valuePlate">¥1,000</span>
+                        </div>
+                        <div class="price-total">
+                            <span>总计</span>
+                            <span id = "valueTotal">¥216,100</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button class="btn btn-outline" style="flex: 1;" onclick="goBack('sedan')">修改配置</button>
+                        <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
+                        <!-- <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://beamng.com/game/')">预约试驾</button> -->
+                        <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://github.com/Foral-Auto/Foral-Auto.github.io/releases/download/Cars/motop_lst.zip')">立即订购</button>
                     </div>
                 </div>
-                <div class="model-info">
-                    <h3>摩托比LST</h3>
-                    <div class="model-price">¥89,800起</div>
-                    <div class="model-features">
-                        <span class="feature">紧凑型轿车</span>
-                        <span class="feature">混合动力</span>
-                        <span class="feature">环保内饰</span>
+                
+                <div class="preview-details">
+                    <h3>交付信息</h3>
+                    <div class="detail-item">
+                        <span>预计交付时间</span>
+                        <span>1周</span>
                     </div>
-                    <p></p>
-                    <div class="model-actions">
-                        <button class="btn btn-outline" onclick="aboutModel('lst')">查看详情</button>
-                        <button class="btn btn-primary" onclick="selectModel('lst')">选择此车型</button>
+                    <div class="detail-item">
+                        <span>推荐经销商</span>
+                        <span>上海浦东风傲中心</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>经销商地址</span>
+                        <span>上海市浦东新区C路4号</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>联系电话</span>
+                        <span>+1-505-842-5662</span>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background: #f9f9f9; border-radius: 8px; padding: 20px;">
+                        <h3>专属优惠</h3>
+                        <p>恭喜！您选择的配置可享受以下专属优惠：</p>
+                        <ul style="margin: 15px 0 15px 20px;">
+                            <li>3年或10万公里免费保养</li>
+                            <li>5年免费道路救援</li>
+                            <li>低息金融方案：首付30%，年利率3.99%</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3>下一步建议</h3>
+                        <p>我们的销售顾问将在24小时内联系您，为您安排试驾和购车事宜。</p>
+                        <p>您也可以直接前往推荐经销商处体验实车。</p>
                     </div>
                 </div>
             </div>
-
-            <div class="box">
-                <!-- <span class="line"></span> -->
-                <img src="svg/ind_logo_black.svg" style="height: 60px;"></img>
-                <span class="text">IND</span>
-                <span class="line"></span>
-            </div>
-
         </div>
     
     <!-- 页脚 -->
@@ -947,7 +938,7 @@
             <div class="footer-column">
                 <h3>联系我们</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号 </li>
+                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号</li>
                     <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
                     <li><i class="fas fa-envelope"></i> foralauto@protonmail.com</li>
                     <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
@@ -981,13 +972,13 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            document.getElementById(`${pageId}-page`).classList.add('active');
+            window.location.href = "../" + pageId + ".html"
         }
         
         // 返回上一页
-        function goBack(targetPage) {
+        function goBack(model) {
             // showPage(targetPage);
-            window.location.href = "index.html";
+            window.location.href = "../models_" + model + ".html";
         }
         
         // 车辆类型选择
@@ -997,8 +988,7 @@
         
         // 车型选择
         function selectModel(model) {
-            // showPage('config');
-            window.location.href = model + "/" + model + ".html";
+            showPage('config');
         }
         
         // 配置选项选择
@@ -1011,7 +1001,7 @@
             
             // 添加当前选项的选择状态
             element.classList.add('selected');
-            
+            document.getElementById(category).innerHTML = option;
             // 这里可以添加更新配置预览和价格的逻辑
         }
         
@@ -1019,11 +1009,40 @@
         function showPreview() {
             showPage('preview');
         }
+
+        function linkOut(web) {
+            window.location.href = web;
+        }
         
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
             // 默认显示首页
-            showPage('home');
+            // showPage('home');
+            // window.location.href = "../index.html";
+
+            document.getElementById('color').innerHTML = localStorage.getItem('color');
+            document.getElementById('interior').innerHTML = localStorage.getItem('interior');
+            document.getElementById('tech').innerHTML = localStorage.getItem('tech');
+            document.getElementById('wheels').innerHTML = localStorage.getItem('wheels');
+
+            var valueBasic = localStorage.getItem('valueBasic');
+            var valueToatalBT = localStorage.getItem('valueTotal');
+            var valueOptional = valueToatalBT - valueBasic;
+            var VBC = parseInt(valueBasic);
+
+            document.getElementById('valueBasic').innerHTML = "¥" + VBC.toLocaleString();
+            document.getElementById('valueOptional').innerHTML = "¥" + valueOptional.toLocaleString();
+
+            var valueTaxe = valueToatalBT * 0.08;
+            var valueInsurance = 2000;
+            var valuePlate = 500;
+            var valueToatal = parseInt(valueToatalBT) + parseInt(valueTaxe) + parseInt(valueInsurance) + parseInt(valuePlate);
+
+            document.getElementById('valueTaxe').innerHTML = "¥" + valueTaxe.toLocaleString();
+            document.getElementById('valueInsurance').innerHTML = "¥" + valueInsurance.toLocaleString();
+            document.getElementById('valuePlate').innerHTML = "¥" + valuePlate.toLocaleString();
+            document.getElementById('valueTotal').innerHTML = "¥" + valueToatal.toLocaleString();
+
         });
     </script>
 </body>
