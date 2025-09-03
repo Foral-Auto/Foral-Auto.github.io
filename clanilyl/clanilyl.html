@@ -787,7 +787,7 @@
         
         <!-- 配置选装页面 -->
         <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
-            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回</a>
+            <a href="#" class="back-btn" onclick="goBack('suv')"><i class="fas fa-arrow-left"></i> 返回</a>
             <div class="page-title">
                 <h1>定制您的Clanily L</h1>
                 <p>选择配置和选装件，打造专属于您的风傲座驾</p>
@@ -1009,9 +1009,10 @@
         }
         
         // 返回上一页
-        function goBack(targetPage) {
+        function goBack(model) {
             // showPage(targetPage);
-            window.location.href = "../models_sedan.html";
+            // window.location.href = "../models_" + model + ".html";
+            history.back();
         }
         
         // 车辆类型选择

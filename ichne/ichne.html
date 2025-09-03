@@ -1009,9 +1009,10 @@
         }
         
         // 返回上一页
-        function goBack(targetPage) {
+        function goBack(model) {
             // showPage(targetPage);
-            window.location.href = "../models_sedan.html";
+            // window.location.href = "../models_" + model + ".html";
+            history.back();
         }
         
         // 车辆类型选择

@@ -781,7 +781,7 @@
         
         <!-- 价格预览页面 -->
         <div class="page active" id="preview-page" style="width: 80%; margin: 0 auto; ">
-            <a href="#" class="back-btn" onclick="goBack('sedan')"><i class="fas fa-arrow-left"></i> 返回</a>
+            <a href="#" class="back-btn" onclick="goBack('suv')"><i class="fas fa-arrow-left"></i> 返回</a>
             <div class="page-title">
                 <h1>您的风傲配置</h1>
                 <p>查看您精心选择的配置和最终价格</p>
@@ -978,7 +978,8 @@
         // 返回上一页
         function goBack(model) {
             // showPage(targetPage);
-            window.location.href = "../models_" + model + ".html";
+            // window.location.href = "../models_" + model + ".html";
+            history.back();
         }
         
         // 车辆类型选择
