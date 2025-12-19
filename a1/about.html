@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伊德A1 | 风傲汽车</title>
+    <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img onclick="showPage('index')" src="../svg/foral_logo_background.svg" alt="风傲logo" class="carousel-logo" style="transform: scale(0.4); position: absolute; margin: 0 auto;  left: 10%; "></img>
+                <span class="logo-text" style="position: absolute; margin: 0 auto; left: 18%; ">风傲汽车</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link" data-page="index">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
+                <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline" >预约试驾</a>
+                <a href="#" class="btn btn-primary">我的风傲</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 车型详情页内容 -->
+    <div class="main-container">
+        <div class="model-detail-container">
+            
+            <!-- 轮播图部分 -->
+            <div class="model-hero">
+                <div class="model-hero-slides">
+                    <!-- 轮播图1 -->
+                    <div class="model-hero-slide active" style="background-image:url('../images/ind_A1/F.png'); ">
+                        <div class="model-hero-contentF">
+                            <h2>优雅设计，卓越性能</h2>
+                            <p>A1融合了风傲最新设计语言与尖端技术，提供无与伦比的驾驶体验</p>
+                            <button class="btn btn-primary" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 轮播图2 -->
+                    <div class="model-hero-slide" style="background-image:url('../images/ind_A1/S.png'); ">
+                        <div class="model-hero-contentS">
+                            <h2>智能混合动力系统</h2>
+                            <p>新一代混合动力技术，无缝切换电动与燃油模式，提供平顺而高效的驾驶体验</p>
+                            <button class="btn btn-primary" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 轮播图3 -->
+                    <div class="model-hero-slide" style="background-image:url('../images/ind_A1/R.png'); ">
+                        <div class="model-hero-contentR">
+                            <h2>豪华内饰空间</h2>
+                            <p>精心打造的内饰空间，采用高级材料和人体工学设计，提供极致的驾乘舒适性</p>
+                            <button class="btn btn-primary" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 轮播导航点 -->
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" data-index="0"></div>
+                        <div class="carousel-dot" data-index="1"></div>
+                        <div class="carousel-dot" data-index="2"></div>
+                    </div>
+                    
+                    <!-- 轮播箭头 -->
+                    <div class="carousel-arrows">
+                        <div class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                        <div class="carousel-arrow next"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>高效动力</h3>
+                    <p>1.4T智能混合动力系统，综合功率218马力</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-gas-pump"></i>
+                    <h3>超低油耗</h3>
+                    <p>百公里综合油耗仅2.5L，续航超过2000公里</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>顶级安全</h3>
+                    <p>配备10安全气囊及最新主动安全系统</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>智能科技</h3>
+                    <p>12.3英寸数字仪表盘与智能互联系统</p>
+                </div>
+            </div>
+            
+            <div class="feature-section">
+                <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem; color: var(--secondary);">核心特性</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-image" style="background: linear-gradient(to right, #2c3e50, #4ca1af);"></div>
+                        <div class="feature-content">
+                            <h3>智能混合动力系统</h3>
+                            <p>新一代混合动力技术，无缝切换电动与燃油模式，提供平顺而高效的驾驶体验。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image" style="background: linear-gradient(to right, #1a2a6c, #b21f1f);"></div>
+                        <div class="feature-content">
+                            <h3>高级驾驶辅助系统</h3>
+                            <p>全系标配风傲Safety Sense 3.0，包含自适应巡航、车道保持和自动紧急制动等功能。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image" style="background: linear-gradient(to right, #283c86, #45a247);"></div>
+                        <div class="feature-content">
+                            <h3>舒适豪华内饰</h3>
+                            <p>精心打造的内饰空间，采用高级材料和人体工学设计，提供极致的驾乘舒适性。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image" style="background: linear-gradient(to right, #4b6cb7, #182848);"></div>
+                        <div class="feature-content">
+                            <h3>智能互联体验</h3>
+                            <p>12.3英寸触控屏支持Apple CarPlay和Android Auto，打造无缝智能互联体验。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #3498db, #8e44ad);"></div>
+                    <div class="gallery-caption">流线型外观设计</div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #e74c3c, #f39c12);"></div>
+                    <div class="gallery-caption">豪华内饰空间</div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #27ae60, #2ecc71);"></div>
+                    <div class="gallery-caption">智能驾驶舱</div>
+                </div>
+            </div>
+            
+            <div class="tech-specs">
+                <h2 style="text-align: center; margin-bottom: 30px; font-size: 2rem; color: var(--secondary);">技术规格</h2>
+                <table class="spec-table">
+                    <tr>
+                        <th>规格</th>
+                        <th>精英版</th>
+                        <th>豪华版</th>
+                        <th>旗舰版</th>
+                    </tr>
+                    <tr>
+                        <td>发动机</td>
+                        <td>2.5L 混合动力</td>
+                        <td>2.5L 混合动力</td>
+                        <td>2.5L 混合动力</td>
+                    </tr>
+                    <tr>
+                        <td>最大功率</td>
+                        <td>178马力</td>
+                        <td>178马力</td>
+                        <td>218马力</td>
+                    </tr>
+                    <tr>
+                        <td>综合油耗(L/100km)</td>
+                        <td>4.5</td>
+                        <td>4.6</td>
+                        <td>5.1</td>
+                    </tr>
+                    <tr>
+                        <td>变速箱</td>
+                        <td>E-CVT</td>
+                        <td>E-CVT</td>
+                        <td>E-CVT</td>
+                    </tr>
+                    <tr>
+                        <td>驱动方式</td>
+                        <td>前轮驱动</td>
+                        <td>前轮驱动</td>
+                        <td>电子四驱</td>
+                    </tr>
+                    <tr>
+                        <td>0-100km/h加速</td>
+                        <td>8.9秒</td>
+                        <td>8.9秒</td>
+                        <td>7.5秒</td>
+                    </tr>
+                    <tr>
+                        <td>智能安全系统</td>
+                        <td>标准版</td>
+                        <td>增强版</td>
+                        <td>旗舰版</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="model-header">
+                <h1>伊德 A1</h1>
+                <div class="price">¥168,800 起</div>
+                <p class="subtitle">重新定义驾驶体验，融合优雅设计与尖端科技</p>
+                <div class="trim-levels">
+                    <div class="trim-level">
+                        <h3>精英版</h3>
+                        <div class="trim-price">¥168,800</div>
+                        <ul class="trim-features">
+                            <li>2.5L 智能混合动力系统</li>
+                            <li>17英寸合金轮毂</li>
+                            <li>10.1英寸中控触摸屏</li>
+                            <li>智能钥匙系统</li>
+                            <li>自动空调</li>
+                        </ul>
+                        <button class="btn btn-outline">查看详情</button>
+                    </div>
+                    <div class="trim-level">
+                        <h3>豪华版</h3>
+                        <div class="trim-price">¥198,800</div>
+                        <ul class="trim-features">
+                            <li>2.5L 智能混合动力系统</li>
+                            <li>18英寸运动轮毂</li>
+                            <li>12.3英寸全液晶仪表</li>
+                            <li>全景天窗</li>
+                            <li>智能安全套装</li>
+                        </ul>
+                        <button class="btn btn-outline">查看详情</button>
+                    </div>
+                    <div class="trim-level">
+                        <h3>旗舰版</h3>
+                        <div class="trim-price">¥228,800</div>
+                        <ul class="trim-features">
+                            <li>2.5L 高性能混合动力</li>
+                            <li>19英寸专属轮毂</li>
+                            <li>高级真皮座椅</li>
+                            <li>JBL高级音响系统</li>
+                            <li>全自动驾驶辅助</li>
+                        </ul>
+                        <button class="btn btn-primary">立即购买</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-options">
+                <h3 style="width: 100%; margin-bottom: 20px; font-size: 1.5rem;">可选颜色</h3>
+                <div class="color-option">
+                    <div class="color-circle selected" style="background: #2c3e50;"></div>
+                    <span class="color-name">星耀黑</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-circle" style="background: #e74c3c;"></div>
+                    <span class="color-name">烈焰红</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-circle" style="background: #3498db;"></div>
+                    <span class="color-name">天际蓝</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-circle" style="background: #ecf0f1;"></div>
+                    <span class="color-name">珍珠白</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-circle" style="background: #7f8c8d;"></div>
+                    <span class="color-name">钛银灰</span>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>准备好体验风傲A1了吗？</h2>
+                <p>立即预约试驾或联系您附近的经销商</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" style="background: white; color: var(--secondary);">预约试驾</button>
+                    <button class="btn btn-outline" style="border-color: white; color: white;">查找经销商</button>
+                    <button class="btn btn-primary">在线定制您的A1</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>风傲汽车</h3>
+                <p>风傲致力于为全球消费者提供高品质、安全可靠的汽车产品，创造更加美好的移动社会。</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>热门车型</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Kuna</a></li>
+                    <li><a href="#">X2B</a></li>
+                    <li><a href="#">GT-7</a></li>
+                    <li><a href="#">E-200</a></li>
+                    <li><a href="#">Voyager</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>车主服务</h3>
+                <ul class="footer-links">
+                    <li><a href="#">预约保养</a></li>
+                    <li><a href="#">道路救援</a></li>
+                    <li><a href="#">零件查询</a></li>
+                    <li><a href="#">车主手册</a></li>
+                    <li><a href="#">软件更新</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号</li>
+                    <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
+                    <li><i class="fas fa-envelope"></i> foralauto@protonmail.com</li>
+                    <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 莱姆利尔工业集团 版权所有 | 隐私政策 | 使用条款</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 轮播图功能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.model-hero-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.querySelector('.carousel-arrow.prev');
+        const nextBtn = document.querySelector('.carousel-arrow.next');
+        let slideInterval;
+        
+        // 显示指定幻灯片
+        function showSlide(index) {
+            // 移除所有活动状态
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // 添加当前活动状态
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+        
+        // 下一张幻灯片
+        function nextSlide() {
+            let nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+        
+        // 上一张幻灯片
+        function prevSlide() {
+            let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+        }
+        
+        // 开始自动轮播
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // 暂停自动轮播
+        function pauseAutoSlide() {
+            clearInterval(slideInterval);
+        }
+        
+        // 初始化轮播图
+        function initCarousel() {
+            showSlide(0);
+            startAutoSlide();
+            
+            // 鼠标悬停时暂停自动轮播
+            const carousel = document.querySelector('.model-hero');
+            carousel.addEventListener('mouseenter', pauseAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+            
+            // 导航点点击事件
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            // 箭头按钮事件
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+        }
+        
+        // 页面导航功能
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                showPage(targetPage);
+                
+                // 更新导航激活状态
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // 显示指定页面
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            window.location.href = "../" + pageId + ".html"
+        }
+
+        function linkOut(web) {
+            window.location.href = web;
+        }
+        
+        // 颜色选择功能
+        document.querySelectorAll('.color-circle').forEach(circle => {
+            circle.addEventListener('click', function() {
+                document.querySelectorAll('.color-circle').forEach(c => {
+                    c.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+        
+        // 车型版本切换动画
+        document.querySelectorAll('.trim-level').forEach(level => {
+            level.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
+            });
+            
+            level.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+            });
+        });
+        
+        // 预约试驾按钮动画
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            initCarousel();
+        });
+    </script>
+</body>
+</html>

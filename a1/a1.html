@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORAL | 风傲 广汽风傲-伊德 A1</title>
+    <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img onclick="showPage('index')" src="../svg/foral_logo_background.svg" alt="风傲logo" class="carousel-logo" style="transform: scale(0.4); position: absolute; margin: 0 auto;  left: 10%; "></img>
+                <span class="logo-text" style="position: absolute; margin: 0 auto; left: 18%; ">风傲汽车</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link" data-page="index">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
+                <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">预约试驾</a>
+                <a href="#" class="btn btn-primary">我的风傲</a>
+            </div>
+        </div>
+    </header>
+
+        <script>
+            var valueBasic = 36900;
+            var value = new Array();
+            // var category = new Array();
+        </script>
+        
+        <!-- 配置选装页面 -->
+        <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
+            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回</a>
+            <div class="page-title">
+                <h1>定制您的A1</h1>
+                <p>选择配置和选装件，打造专属于您的风傲座驾</p>
+            </div>
+            
+            <div class="config-container">
+                <div class="config-options">
+                    <div class="option-group">
+                        <h3>外观颜色</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白', 1, 0)">
+                                <h4>珍珠白</h4>
+                                <p>优雅经典，适合各种场合</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰', 1, 2000)">
+                                <h4>金属灰</h4>
+                                <p>现代感十足，彰显个性</p>
+                                <div class="option-price">+¥2,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红', 1, 3000)">
+                                <h4>烈焰红</h4>
+                                <p>热情奔放，路上焦点</p>
+                                <div class="option-price">+¥3,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>内饰风格</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革内饰', 2, 0)">
+                                <h4>黑色皮革内饰</h4>
+                                <p>经典稳重，易于打理</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮内饰', 2, 5000)">
+                                <h4>米色真皮内饰</h4>
+                                <p>温馨舒适，提升豪华感</p>
+                                <div class="option-price">+¥5,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑内饰', 2, 4500)">
+                                <h4>运动红黑内饰</h4>
+                                <p>激情动感，驾驶乐趣</p>
+                                <div class="option-price">+¥4,500</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>科技选装包</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础科技包', 3, 0)">
+                                <h4>基础科技包</h4>
+                                <p>标配科技功能</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包', 3, 12000)">
+                                <h4>智能安全包</h4>
+                                <p>包含自适应巡航、盲点监测等</p>
+                                <div class="option-price">+¥12,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包', 3, 25000)">
+                                <h4>豪华科技包</h4>
+                                <p>包含HUD、360影像、高级音响</p>
+                                <div class="option-price">+¥25,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>轮毂选择</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂', 4, 0)">
+                                <h4>17英寸合金轮毂</h4>
+                                <p>标准配置</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂', 4, 8000)">
+                                <h4>18英寸运动轮毂</h4>
+                                <p>增强操控性和外观</p>
+                                <div class="option-price">+¥8,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂', 4, 15000)">
+                                <h4>19英寸豪华轮毂</h4>
+                                <p>豪华大气，提升整体质感</p>
+                                <div class="option-price">+¥15,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="config-preview">
+                    <h3>预览</h3>
+                    <div class="preview-image">
+                        <img src="../images/ind_A1/F.png" alt="车辆预览">
+                    </div>
+                    
+                    <div class="price-summary">
+                        <h4>价格明细</h4>
+                        <div class="price-item">
+                            <span>基础车型</span>
+                            <span id = "valueBasic">¥89,800</span>
+                        </div>
+                        <div class="price-item">
+                            <span id = "color">珍珠白</span>
+                            <span id = "value1">¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span id = "interior">黑色皮革内饰</span>
+                            <span id = "value2">¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span id = "tech">基础科技包</span>
+                            <span id = "value3">¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span id = "wheels">17英寸合金轮毂</span>
+                            <span id = "value4">¥0</span>
+                        </div>
+                        <div class="price-total">
+                            <span>总计</span>
+                            <script>
+                                function result(num, _value){
+                                    // value[num] = _value;
+                                    // var result = valueBasic;
+                                    // for(var i = 1; i <= value.length; i++){
+                                    //     if (value[i] != null) {
+                                    //         result += value[i];
+                                    //         document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
+                                    //     }
+                                    // }
+                                    // document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
+                                }
+                            </script>
+                            <span id = "result">¥89,800</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width: 100%;" onclick="showPreview()">确认配置</button>
+                </div>
+            </div>
+        </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>风傲汽车</h3>
+                <p>风傲致力于为全球消费者提供高品质、安全可靠的汽车产品，创造更加美好的移动社会。</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>热门车型</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Kuna</a></li>
+                    <li><a href="#">X2B</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>车主服务</h3>
+                <ul class="footer-links">
+                    <li><a href="#">预约保养</a></li>
+                    <li><a href="#">道路救援</a></li>
+                    <li><a href="#">零件查询</a></li>
+                    <li><a href="#">车主手册</a></li>
+                    <li><a href="#">软件更新</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号</li>
+                    <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
+                    <li><i class="fas fa-envelope"></i> foralauto@protonmail.com</li>
+                    <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 莱姆利尔工业集团 版权所有 | </p>
+        </div>
+    </footer>
+    
+    <script>
+        // 页面导航功能
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                showPage(targetPage);
+                
+                // 更新导航激活状态
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // 显示指定页面
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            window.location.href = "../" + pageId + ".html"
+        }
+        
+        function goBack(model) {
+            // showPage(targetPage);
+            // window.location.href = "../models_" + model + ".html";
+            history.back();
+        }
+        
+        // 车辆类型选择
+        function selectType(type) {
+            showPage('model');
+        }
+        
+        // 车型选择
+        function selectModel(model) {
+            showPage('config');
+        }
+
+        function init(category, option, ord, val){
+            var judge = true;
+            for (var i = 0; i < catas.length; i++){
+                if (catas[i] == category) {
+                    judge = false;
+                    break;
+                }
+            }
+            if (judge){
+                catas.push(category);
+            }
+
+            value[ord] = val;
+            var result = valueBasic;
+            for(var i = 1; i <= value.length; i++){
+                if (value[i] != null) {
+                    result += value[i];
+                    document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
+                }
+            }
+            document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
+            localStorage.setItem(category, option);
+            localStorage.setItem("valueBasic", valueBasic);
+            localStorage.setItem("valueTotal", result);
+
+            document.getElementById(category).innerHTML = option;
+        }
+        
+        // 配置选项选择
+        var catas = new Array()
+        function selectOption(element, category, option, ord, val) {
+            // 移除同组其他选项的选择状态
+            const group = element.parentElement;
+            group.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // 添加当前选项的选择状态
+            element.classList.add('selected');
+            // 这里可以添加更新配置预览和价格的逻辑
+            init(category, option, ord, val)
+        }
+        
+        // 显示配置预览页面
+        function showPreview() {
+            // showPage('preview');
+            localStorage.setItem('category', catas);
+            window.location.href = "result.html";
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 默认显示首页
+            // showPage('home');
+            // window.location.href = "../index.html";
+            document.getElementById("valueBasic").innerHTML = "¥" + valueBasic.toLocaleString();
+            document.getElementById("result").innerHTML = "¥" + valueBasic.toLocaleString();
+            init('color', '珍珠白', 1, 0);
+            init('interior', '黑色皮革', 2, 0);
+            init('tech', '基础版', 3, 0);
+            init('wheels', '17英寸合金轮毂', 4, 0);
+        });
+    </script>
+</body>
+</html>
