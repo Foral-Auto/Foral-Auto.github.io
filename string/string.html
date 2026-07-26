@@ -3,893 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Velocità Anniversario 10° · 技术档案</title>
+    <title>FORAL STRING M THOERY · 技术档案</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <style>
-        /* ===== 全局重置 ===== */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #c9a959;
-            --gold-light: #e8d5a3;
-            --red: #c0392b;
-            --red-dark: #a02020;
-            --black: #0a0a0a;
-            --black-light: #1a1a1a;
-            --black-card: #141414;
-            --gray: #8a8a8a;
-            --white: #f5f5f5;
-            --transition: 0.3s ease;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--black);
-            color: #e0e0e0;
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        ul {
-            list-style: none;
-        }
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* ===== 滚动条 ===== */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--black);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 2px;
-        }
-
-        /* ===== 导航栏 ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 16px 0;
-            transition: all var(--transition);
-            background: transparent;
-            border-bottom: 1px solid transparent;
-        }
-        .navbar.scrolled {
-            background: rgba(10, 10, 10, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .navbar .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--white);
-            transition: var(--transition);
-        }
-        .logo span {
-            color: var(--gold);
-        }
-        .logo:hover {
-            color: var(--gold);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-        .nav-links a {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
-            transition: var(--transition);
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: var(--transition);
-        }
-        .nav-links a:hover {
-            color: var(--white);
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .nav-links .btn-nav {
-            background: var(--gold);
-            color: var(--black);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-        .nav-links .btn-nav:hover {
-            background: var(--gold-light);
-            transform: scale(1.05);
-        }
-        .nav-links .btn-nav::after {
-            display: none;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 4px;
-            background: none;
-            border: none;
-        }
-        .menu-toggle span {
-            display: block;
-            width: 26px;
-            height: 2px;
-            background: var(--white);
-            transition: var(--transition);
-            border-radius: 2px;
-        }
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* ===== 英雄区 ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: var(--black);
-            overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-            background:
-                radial-gradient(ellipse at 30% 40%, rgba(192, 57, 43, 0.15) 0%, transparent 60%),
-                var(--black);
-        }
-        .hero-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.3;
-            mix-blend-mode: overlay;
-        }
-        .hero .container {
-            position: relative;
-            z-index: 1;
-            padding-top: 100px;
-            padding-bottom: 80px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            border: 1px solid rgba(201, 169, 89, 0.2);
-            padding: 4px 16px;
-            border-radius: 50px;
-            width: fit-content;
-            background: rgba(10, 10, 10, 0.5);
-            backdrop-filter: blur(4px);
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            max-width: 800px;
-        }
-        .hero h1 .gold {
-            color: var(--gold);
-        }
-        .hero h1 .red {
-            color: var(--red);
-        }
-        .hero h1 .sub {
-            font-size: 0.35em;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.35);
-            letter-spacing: 4px;
-            display: block;
-            margin-top: 8px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.6);
-            max-width: 520px;
-            line-height: 1.8;
-            letter-spacing: 0.3px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 10px;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 34px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            font-family: 'Inter', sans-serif;
-        }
-        .btn-primary {
-            background: var(--gold);
-            color: var(--black);
-        }
-        .btn-primary:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(201, 169, 89, 0.2);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--white);
-        }
-
-        .hero-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: bounceDown 2.4s ease-in-out infinite;
-        }
-        .hero-indicator .line {
-            width: 1px;
-            height: 30px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
-        }
-
-        @keyframes bounceDown {
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(6px);
-            }
-        }
-
-        /* ===== 通用标题 ===== */
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 8px;
-        }
-        .section-title .gold {
-            color: var(--gold);
-        }
-        .section-sub {
-            color: rgba(255, 255, 255, 0.3);
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            margin-bottom: 4px;
-        }
-        .section-desc {
-            color: rgba(255, 255, 255, 0.5);
-            max-width: 640px;
-            font-weight: 300;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        /* ===== 技术概览 (关键数据) ===== */
-        .tech-overview {
-            padding: 80px 0;
-            background: var(--black);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .tech-overview .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .tech-item {
-            border-left: 2px solid var(--gold);
-            padding-left: 18px;
-        }
-        .tech-item .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--gold);
-            line-height: 1;
-        }
-        .tech-item .number small {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.3);
-            margin-left: 4px;
-        }
-        .tech-item .label {
-            font-size: 0.75rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 4px;
-        }
-
-        /* ===== 内容区块（仿F80风格） ===== */
-        .content-block {
-            padding: 80px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            background: var(--black);
-        }
-        .content-block:last-of-type {
-            border-bottom: none;
-        }
-        .content-block .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-        .content-block .text-content .section-title {
-            margin-bottom: 16px;
-        }
-        .content-block .text-content p {
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 300;
-            line-height: 1.9;
-            margin-bottom: 16px;
-            font-size: 0.95rem;
-        }
-        .content-block .text-content ul {
-            list-style: none;
-            margin-top: 12px;
-        }
-        .content-block .text-content ul li {
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-        .content-block .text-content ul li::before {
-            content: '▹';
-            color: var(--gold);
-            font-size: 0.7rem;
-        }
-        .content-block .image-wrapper {
-            border-radius: 12px;
-            overflow: hidden;
-            background: var(--black-light);
-            position: relative;
-        }
-        .content-block .image-wrapper img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-        .content-block .image-wrapper:hover img {
-            opacity: 1;
-            transform: scale(1.02);
-        }
-        .content-block .image-wrapper .caption {
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(6px);
-            padding: 6px 16px;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.5);
-            letter-spacing: 0.5px;
-            border-left: 2px solid var(--gold);
-        }
-
-        /* ===== 认证声明 ===== */
-        .certification {
-            padding: 60px 0;
-            background: var(--black-light);
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-        .certification .container {
-            max-width: 900px;
-            text-align: center;
-        }
-        .certification .section-sub {
-            color: var(--gold);
-        }
-        .certification p {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.8rem;
-            font-weight: 300;
-            line-height: 1.9;
-            max-width: 700px;
-            margin: 10px auto 0;
-        }
-        .certification .badge-group {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 24px;
-        }
-        .certification .badge-group span {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 4px 18px;
-            border-radius: 50px;
-        }
-
-        /* ===== 预约试驾 ===== */
-        .contact {
-            padding: 80px 0;
-            background: var(--black);
-        }
-        .contact .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-        .contact-info .section-sub {
-            color: var(--gold);
-        }
-        .contact-info .section-title {
-            margin-bottom: 12px;
-        }
-        .contact-info .section-desc {
-            margin-bottom: 24px;
-        }
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .contact-details li {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 300;
-            font-size: 0.9rem;
-        }
-        .contact-details li .icon {
-            color: var(--gold);
-            font-size: 1rem;
-            width: 24px;
-            text-align: center;
-        }
-
-        .contact-form {
-            background: var(--black-card);
-            padding: 36px 32px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .contact-form h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .contact-form .form-sub {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.8rem;
-            margin-bottom: 24px;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.3);
-            margin-bottom: 4px;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px 14px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 8px;
-            color: var(--white);
-            font-size: 0.9rem;
-            font-family: 'Inter', sans-serif;
-            transition: var(--transition);
-            outline: none;
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.06);
-        }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.15);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 70px;
-        }
-        .form-group select option {
-            background: var(--black);
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-        .contact-form .btn {
-            width: 100%;
-            justify-content: center;
-            margin-top: 4px;
-            padding: 14px;
-        }
-
-        /* ===== 页脚 ===== */
-        .footer {
-            padding: 50px 0 24px;
-            background: var(--black);
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .footer .container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .footer-brand .logo {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-            display: inline-block;
-        }
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
-            max-width: 240px;
-            line-height: 1.7;
-        }
-        .footer-links {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .footer-links .col h4 {
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.2);
-            margin-bottom: 10px;
-        }
-        .footer-links .col a {
-            display: block;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.25);
-            transition: var(--transition);
-            padding: 3px 0;
-        }
-        .footer-links .col a:hover {
-            color: var(--gold);
-        }
-
-        .footer-bottom {
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.15);
-        }
-        .footer-socials {
-            display: flex;
-            gap: 16px;
-        }
-        .footer-socials a {
-            color: rgba(255, 255, 255, 0.15);
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-        .footer-socials a:hover {
-            color: var(--gold);
-        }
-
-        /* ===== 响应式 ===== */
-        @media (max-width: 1024px) {
-            .content-block .container,
-            .contact .container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .content-block .image-wrapper img {
-                height: 260px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 24px;
-            }
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(10, 10, 10, 0.97);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: center;
-                gap: 24px;
-                transform: translateX(100%);
-                transition: var(--transition);
-                padding: 40px;
-                z-index: 999;
-            }
-            .nav-links.open {
-                transform: translateX(0);
-            }
-            .nav-links a {
-                font-size: 1.1rem;
-            }
-            .menu-toggle {
-                display: flex;
-                z-index: 1001;
-                position: relative;
-            }
-
-            .hero h1 {
-                font-size: clamp(2.4rem, 10vw, 3.8rem);
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .tech-overview .grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
-            .tech-item .number {
-                font-size: 2.2rem;
-            }
-
-            .content-block .image-wrapper img {
-                height: 200px;
-            }
-
-            .contact-form {
-                padding: 24px 18px;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-top {
-                flex-direction: column;
-                gap: 24px;
-            }
-            .footer-links {
-                gap: 24px;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-            }
-            .hero-actions .btn {
-                justify-content: center;
-                width: 100%;
-            }
-            .tech-overview .grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 14px;
-            }
-            .tech-item .number {
-                font-size: 1.8rem;
-            }
-            .tech-item .label {
-                font-size: 0.65rem;
-            }
-        }
-
-        /* ===== 动画 ===== */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .fade-up.delay-1 {
-            transition-delay: 0.1s;
-        }
-        .fade-up.delay-2 {
-            transition-delay: 0.2s;
-        }
-        .fade-up.delay-3 {
-            transition-delay: 0.3s;
-        }
-        .fade-up.delay-4 {
-            transition-delay: 0.4s;
-        }
-
-        /* ===== 加载界面 - Logo 闪烁 ===== */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--black);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-logo {
-            width: 100px;
-            height: 100px;
-            animation: pulseGlow 1.5s ease-in-out infinite;
-        }
-
-        @keyframes pulseGlow {
-            0% {
-                opacity: 0.3;
-                transform: scale(0.9);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.1);
-                filter: drop-shadow(0 0 25px rgba(201, 169, 89, 0.6));
-            }
-            100% {
-                opacity: 0.3;
-                transform: scale(0.9);
-            }
-        }
-    </style>
+    <!-- 外部样式 -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
     <!-- ===== 加载界面 ===== -->
     <div class="loader" id="loader">
-        <!-- 使用用户提供的 Foral Logo (白色版本) -->
         <svg class="loader-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100" height="100">
             <circle cx="512" cy="512" r="400" fill="none" stroke="#c9a959" stroke-width="25" />
             <path d="M 312 858 L 477 477 A 50 90 0 0 1 547 477 L 712 858" fill="none" stroke="#c9a959" stroke-width="25" />
@@ -899,7 +24,7 @@
     <!-- ===== 导航栏 ===== -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="#" class="logo">Velocità<span>.</span></a>
+            <a href="#" class="logo">Foral<span>. 风傲</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#overview">概览</a></li>
                 <li><a href="#powertrain">动力</a></li>
@@ -918,7 +43,7 @@
     <section class="hero" id="hero">
         <div class="hero-bg">
             <img
-            src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            src="../images/foral_string/FF.png"
             alt="Velocità Anniversario 10°"
             loading="lazy"
             />
@@ -926,8 +51,8 @@
         <div class="container">
             <div class="hero-badge fade-up">十年典藏 · 限量 99 台</div>
             <h1 class="fade-up delay-1">
-                Anniversario <span class="gold">10°</span>
-                <span class="sub">Velocità · 工程与技术革新的巅峰</span>
+                String  <span class="gold">M Theory</span>
+                <span class="sub">String · 工程与物理的完美融合</span>
             </h1>
             <p class="fade-up delay-2">
                 为纪念品牌诞生十周年而打造的终极超级跑车。融合十年赛道经验与最前沿的公路车技术，每一台都是独一无二的性能图腾。
@@ -948,26 +73,57 @@
         <div class="container">
             <div class="fade-up">
                 <div class="section-sub">核心数据</div>
-                <h2 class="section-title">性能 <span class="gold">档案</span></h2>
-                <p class="section-desc">以下为 Anniversario 10° 在工程开发阶段测得的性能指标，数据源于官方测试。</p>
+                <h2 class="section-title">性能 <span class="gold">动若惊雷</span></h2>
+                <p class="section-desc">动力系统由一台3.8升双涡轮增压水平对置发动机以及三台强劲的驱动电机组成，传统与创新的完美结合点。</p>
             </div>
             <div class="grid">
                 <div class="tech-item fade-up delay-1">
-                    <div class="number">830</div>
-                    <div class="label">最大马力 (HP)</div>
+                    <div class="number">1150</div>
+                    <div class="label">最大马力 (PS)</div>
                 </div>
                 <div class="tech-item fade-up delay-2">
-                    <div class="number">2.6 <small>s</small></div>
+                    <div class="number">2.4 <small>s</small></div>
                     <div class="label">0–100 km/h 加速</div>
                 </div>
                 <div class="tech-item fade-up delay-3">
-                    <div class="number">355 <small>+</small></div>
+                    <div class="number">375 <small>+</small></div>
                     <div class="label">最高时速 (km/h)</div>
                 </div>
                 <div class="tech-item fade-up delay-4">
-                    <div class="number">1,380 <small>kg</small></div>
+                    <div class="number">1,460 <small>kg</small></div>
                     <div class="label">干重</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 设计 · 修改后 ===== -->
+    <section class="content-block" id="design">
+        <div class="container">
+            <div class="text-content fade-up">
+                <div class="section-sub">设计与艺术</div>
+                <h2 class="section-title">经典 <span class="gold">与未来</span></h2>
+                <p>
+                    String·弦 的设计来自PALLADI &reg，融合了经典超跑的比例美学与未来主义的设计元素。车身线条流畅而富有张力，每一处曲面都经过精密计算，既是对品牌十年设计哲学的致敬，也是对空气动力学效能的极致追求。
+                </p>
+                <p>
+                    标志性的蝶翼门、锐利的 LED 矩阵大灯与贯穿式尾灯，构成了 String·弦 极具辨识度的视觉符号。主动式进气格栅与可调尾翼协同工作，在不同速度下自动调节气流，实现下压力与风阻的完美平衡。
+                </p>
+                <ul>
+                    <li>设计来自 PALLADI &reg</li>
+                    <li>车门设计：蝶翼式开启</li>
+                    <li>内饰材质：Nappa 皮革 · Alcantara · 碳纤维</li>
+                    <li>交互系统：全液晶仪表盘 + HUD 抬头显示</li>
+                    <li>设计哲学：Form Follows Function</li>
+                </ul>
+            </div>
+            <div class="image-wrapper fade-up delay-2">
+                <img
+                src="../images/foral_string/SS.png"
+                alt="String·弦 设计"
+                loading="lazy"
+                />
+                <div class="caption">设计与工程美学的完美融合</div>
             </div>
         </div>
     </section>
@@ -977,27 +133,30 @@
         <div class="container">
             <div class="text-content fade-up">
                 <div class="section-sub">动力核心</div>
-                <h2 class="section-title">V12 <span class="gold">自然吸气</span></h2>
+                <h2 class="section-title">涡轮增压B6 <span class="gold">混合动力</span></h2>
                 <p>
-                    代号 F140 HD 的 6.5 升 V12 发动机，是 Velocità 十年引擎技术的集大成者。最大功率 830 马力，红线转速高达 9500 rpm，带来纯粹、线性的动力输出和令人陶醉的机械声浪。
+                    代号 BS6 GT38X 的 3.8 升 B6 发动机，是 Foral 十年引擎技术的集大成者。最大马力 903 PS，红线转速高达 9500 rpm，带来纯粹、线性的动力输出和令人陶醉的机械声浪。
                 </p>
                 <p>
-                    该引擎源自 Velocità 在 GT 赛事中的经验积累，采用钛合金连杆、轻量化活塞和等离子喷涂缸壁，在提升效率的同时保持了自然吸气发动机独有的响应特性。
+                    该引擎源自 Leisurely &reg 在 GT 赛事中的经验积累，采用钛合金连杆、轻量化锻造活塞和等离子喷涂缸壁，与 FHS &reg 混合动力系统配合，在提升动力的同时保持了动力的快速响应。
                 </p>
                 <ul>
-                    <li>排量：6,498 cc</li>
-                    <li>压缩比：13.6 : 1</li>
-                    <li>最大扭矩：750 Nm @ 7,000 rpm</li>
+                    <li>调校来自 Leisurely &reg</li>
+                    <li>混合动力系统来自 FHS &reg</li>
+                    <li>排量：3,799 cc</li>
+                    <li>压缩比：9.6 : 1</li>
+                    <li>最大马力：904 PS @ 9,100 rpm</li>
+                    <li>最大扭矩：813 Nm @ 6,400 rpm</li>
                     <li>专属调校：赛道模式与公路模式双标定</li>
                 </ul>
             </div>
             <div class="image-wrapper fade-up delay-2">
                 <img
-                src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="V12 发动机"
+                src="../images/foral_string/EN.png"
+                alt="B6 发动机"
                 loading="lazy"
                 />
-                <div class="caption">V12 自然吸气引擎 · 工程美学</div>
+                <div class="caption">3.8升 B6 双涡轮增压引擎 · 工程美学</div>
             </div>
         </div>
     </section>
@@ -1009,13 +168,13 @@
                 <div class="section-sub">空气动力学</div>
                 <h2 class="section-title">主动 <span class="gold">下压力</span></h2>
                 <p>
-                    Anniversario 10° 搭载主动式空气动力学套件，包括可调式尾翼、主动扩散器和前部 S-Duct 通道。在 280 km/h 时速下，整套系统可产生超过 500 kg 的下压力，确保高速稳定性。
+                    String·弦 搭载主动式空气动力学套件，包括可调式尾翼、主动扩散器和前部 S-Duct 通道。在 280 km/h 时速下，整套系统可产生超过 1000 kg 的下压力，确保高速稳定性。
                 </p>
                 <p>
                     底盘采用碳纤维单体壳结构，与前后铝合金副车架相结合，在保证刚性的同时实现了轻量化目标。悬挂系统为推杆式主动悬挂，可根据驾驶模式实时调整阻尼和高度。
                 </p>
                 <ul>
-                    <li>下压力 (280 km/h)：≥ 500 kg</li>
+                    <li>下压力 (280 km/h)：≥ 1000 kg</li>
                     <li>车身架构：碳纤维单体壳</li>
                     <li>悬挂：推杆式主动悬挂</li>
                     <li>制动：碳陶瓷刹车 (CCM-R Plus)</li>
@@ -1023,7 +182,7 @@
             </div>
             <div class="image-wrapper fade-up delay-2">
                 <img
-                src="https://images.unsplash.com/photo-1553440569-bcc6383a4bf8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="../images/foral_string/RR.png"
                 alt="空气动力学设计"
                 loading="lazy"
                 />
@@ -1038,7 +197,7 @@
             <div class="section-sub">官方认证</div>
             <h2 class="section-title">测试与 <span class="gold">认证</span></h2>
             <p>
-                Anniversario 10° 已通过全球多个市场的安全与排放标准认证。所有性能数据均基于 Velocità 官方测试场在标准环境条件下测得，符合国际测试规范。
+                String·弦 已通过全球多个市场的安全与排放标准认证。所有性能数据均基于 Foral 官方测试场在标准环境条件下测得，符合国际测试规范。
             </p>
             <div class="badge-group">
                 <span>ECE R49 排放认证</span>
@@ -1059,12 +218,12 @@
                 <div class="section-sub">预约试驾</div>
                 <h2 class="section-title">体验 <span class="gold">非凡</span></h2>
                 <p class="section-desc">
-                    填写下方信息，我们的专属顾问将与您联系，为您安排 Anniversario 10° 的专属试驾体验。
+                    填写下方信息，我们的专属顾问将与您联系，为您安排 String·弦 的专属试驾体验。
                 </p>
                 <ul class="contact-details">
-                    <li><span class="icon">📍</span> 上海 · 北京 · 深圳 · 成都</li>
-                    <li><span class="icon">📞</span> 400-888-2026</li>
-                    <li><span class="icon">✉️</span> experience@velocita.com</li>
+                    <li><span class="icon">📍</span> 纽约 · 伦敦 · 上海 · 巴黎</li>
+                    <li><span class="icon">📞</span> +1-505-842-5662</li>
+                    <li><span class="icon">✉️</span> foralauto@protonmail.com</li>
                 </ul>
             </div>
             <div class="contact-form fade-up delay-2">
@@ -1089,7 +248,7 @@
                         <div class="form-group">
                             <label for="model">意向车型</label>
                             <select id="model">
-                                <option value="Anniversario 10°" selected>Anniversario 10° 限量版</option>
+                                <option value="Anniversario 10°" selected>String·弦 限量版</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1112,8 +271,8 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="#" class="logo">Velocità<span>.</span></a>
-                    <p>源自意大利的超级跑车品牌，以极致性能与工程创新，定义驾驶艺术。</p>
+                    <a href="#" class="logo">Foral<span>.</span></a>
+                    <p>源自莱姆利尔的超级跑车品牌，以极致性能与工程创新，定义驾驶艺术。</p>
                 </div>
                 <div class="footer-links">
                     <div class="col">
@@ -1137,7 +296,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>&copy; 2026 Velocità. All rights reserved.</span>
+                <span>&copy; 2026 Foral. All rights reserved.</span>
                 <div class="footer-socials">
                     <a href="#" aria-label="Instagram">📷</a>
                     <a href="#" aria-label="YouTube">▶</a>
@@ -1148,97 +307,7 @@
         </div>
     </footer>
 
-    <!-- ===== JavaScript ===== -->
-    <script>
-        // 加载动画
-        window.addEventListener('load', () => {
-            document.getElementById('loader').classList.add('hidden');
-        });
-
-        // 导航栏滚动
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // 移动端菜单
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('open');
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('open');
-            });
-        });
-
-        // 滚动显示动画
-        const fadeElements = document.querySelectorAll('.fade-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        fadeElements.forEach(el => observer.observe(el));
-
-        // 表单提交
-        function handleSubmit(e) {
-            e.preventDefault();
-            const form = document.getElementById('contactForm');
-            const data = new FormData(form);
-            const name = data.get('name');
-            alert(`🎉 感谢 ${name} 的预约！我们的专属顾问将在 24 小时内与您联系。`);
-            form.reset();
-            // 重置日期
-            const dateInput = document.getElementById('date');
-            if (dateInput) {
-                const tomorrow = new Date();
-                tomorrow.setDate(tomorrow.getDate() + 1);
-                dateInput.value = tomorrow.toISOString().split('T')[0];
-            }
-            return false;
-        }
-
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // 设置日期默认值
-        const dateInput = document.getElementById('date');
-        if (dateInput) {
-            const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            dateInput.value = tomorrow.toISOString().split('T')[0];
-        }
-    </script>
-
+    <!-- 外部 JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
