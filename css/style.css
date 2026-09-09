@@ -807,6 +807,7 @@
         .carousel-logo {
             width: 10%;
             margin-bottom: 30px;
+            float: left;
         }
 
 
