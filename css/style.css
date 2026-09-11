@@ -806,8 +806,7 @@
 
         .carousel-logo {
             width: 10%;
-            margin-bottom: 30px;
-            float: left;
+            margin-bottom: 30px;; left: 10%;
         }
 
 
@@ -1932,7 +1931,7 @@ table {
     .carousel-logo {
         width: 22%;
         max-width: 100px;
-        margin-bottom: 15px;
+        margin-bottom: 15px; left: 0%;
     }
 
     .box {
